@@ -2,7 +2,7 @@ FROM jordan/rundeck
 
 MAINTAINER Kazuhisa Yamamoto
 
-RUN apt-get install -y vim
+RUN apt-get install -y vim less locales task-japanese
 
 RUN { \
     echo '[mysqld]'; \
@@ -16,3 +16,7 @@ RUN cp -p /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN { \
     echo 'Asia/Tokyo'; \
 } > /etc/timezone
+
+RUN sed -i -e 's/# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g' /etc/locale.gen
+RUN echo LANG=ja_JP.UTF-8 > /etc/locale.conf
+RUN locale-gen
