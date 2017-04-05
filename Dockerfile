@@ -1,4 +1,4 @@
-FROM jordan/rundeck:2.7.2
+FROM jordan/rundeck:2.7.3
 
 MAINTAINER Kazuhisa Yamamoto
 
